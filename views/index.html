@@ -1,19 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Dot Game</title>
+    <title>Birthday Theme Dot Game</title>
+    <meta
+      name="Birthday Theme Dot Game"
+      content="A birthday themed dot game created with vanilla javascript ans scss"
+    />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
     />
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#252831" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="icons/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="icons/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="icons/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="icons/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="icons/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="icons/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="icons/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="icons/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="icons/apple-icon-180x180.png"
+    />
+    <link
+      rel="stylesheet"
+      src="//normalize-css.googlecode.com/svn/trunk/normalize.css"
+    />
     <link rel="stylesheet" type="text/css" href="app.css" />
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <link
       href="https://fonts.googleapis.com/css?family=Limelight"
       rel="stylesheet"
     />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <script async src="app.js" type="module"></script>
+    <script defer src="sw.js" type="module"></script>
   </head>
-  <body></body>
+  <body id="app-body">
+    <main class="game__container" id="app">
+      <header class="header__wrapper util__flex--c-spread">
+        <label for="header__logo" class="header__label__reset">Reset</label>
+        <a href="/" class="header__logo">
+          <img
+            src="/img/balloon.svg"
+            class="header__logo_img"
+            height="50"
+            width="50"
+            alt="Balloon logo"
+        /></a>
+        <label for="gameTimer" class="header__label__timer">Time</label>
+        <span id="js-game-timer" class="game__timer">00:60</span>
+        <label for="js-score-board" class="header__label__score">Score</label>
+        <div class="game__score-board" id="js-score-board">
+          <span class="game__score">0</span>
+        </div>
+      </header>
+
+      <!-- GAME BOARD -->
+      <div class="game__board" id="js-game-area">
+        <div id="js-game-overlay" class="overlay">
+          <span class="overlay__text">PAUSED</span>
+        </div>
+      </div>
+
+      <footer class="footer__wrapper util__flex--c-spread">
+        <div
+          class="footer__action slider__container"
+          data-action="remove-on-game-over"
+        >
+          <input
+            type="range"
+            name="gameSpeedSwitcher"
+            id="gameSpeedSwitcher"
+            min="10"
+            max="100"
+            value="35"
+            class="slider"
+            data-action="change-speed"
+          />
+          <label for="gameSpeedSwitcher" class="footer__label">Speed</label>
+        </div>
+
+        <div class="footer__action" data-action="remove-on-game-over">
+          <button
+            id="js-control-pause-game"
+            class="control control--pause-btn"
+            data-action="pause-game"
+          >
+            <img
+              src="/img/icons/pause.svg"
+              alt="Pause game"
+              height="44"
+              width="44"
+              data-action="pause-game"
+            />
+          </button>
+          <button
+            class="control control--play-btn util__is-hidden"
+            data-action="resume-game"
+            id="js-control-resume-game"
+          >
+            <img
+              src="/img/icons/play.svg"
+              alt="Resume game"
+              height="44"
+              width="44"
+              data-action="resume-game"
+            />
+          </button>
+        </div>
+      </footer>
+
+      <!-- START GAME DIALOG -->
+      <aside id="js-start-dialog" class="game__start-dialog animate--slide-up">
+        <div class="start-dialog__overlay"></div>
+        <div class="start-dialog__content">
+          <h1 class="content__title">
+            <!-- <img class="Title__image" src="/img/logo.svg" alt="Indeed logo" /> -->
+            <span class="Title__text">Ready to Play?<br /> </span>
+          </h1>
+
+          <div class="content__actions">
+            <button
+              id="js-control-start-game"
+              class="button button--primary button--block"
+              data-action="start-game"
+            >
+              Start Game
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- modalS -->
+      <div class="modal" id="js-modal">
+        <div class="modal__background"></div>
+        <div class="modal__content" id="js-modal-content"></div>
+        <button
+          class="modal__close"
+          aria-label="close"
+          data-action="close-modal"
+        >
+          x
+        </button>
+      </div>
+    </main>
+  </body>
 </html>
