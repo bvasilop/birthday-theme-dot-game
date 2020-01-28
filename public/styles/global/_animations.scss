@@ -1,0 +1,27 @@
+//
+// Animations
+//
+
+@keyframes plus-points {
+  0% {
+    color: $ocean-blue;
+  }
+  50% {
+    color: $medium-green;
+  }
+  100% {
+    color: $ocean-blue;
+  }
+}
+
+@keyframes minus-points {
+  0% {
+    color: $ocean-blue;
+  }
+  50% {
+    color: $medium-red;
+  }
+  100% {
+    color: $ocean-blue;
+  }
+}

@@ -1,0 +1,108 @@
+// Layout Elements
+
+.header__wrapper {
+  // background-color: $white;
+  background-color: $powder-blue;
+  // background: #2980b9; /* fallback for old browsers */
+  // background: -webkit-linear-gradient(
+  //   to right,
+  //   #ffffff,
+  //   #6dd5fa,
+  //   #2980b9
+  // ); /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(
+  //   to right,
+  //   #ffffff,
+  //   #6dd5fa,
+  //   #2980b9
+  // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.51);
+  padding: 1.2rem 1.2rem 0rem 0.7rem;
+  position: relative;
+  z-index: 10;
+
+  .header__logo {
+    touch-action: manipulation;
+    transition-duration: 164ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    padding-top: 0.25rem;
+
+    &:active {
+      outline: none;
+      transform: scale(0.8);
+    }
+
+    .header__logo_img:hover {
+      transform: translateY(0) scale(1.5);
+    }
+  }
+  .header__label__timer {
+    position: absolute;
+    top: 0px;
+    right: calc(50% - 1.5rem);
+    padding-top: 0.25rem;
+  }
+  .header__label__score {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.25rem 0.5rem 0 0;
+  }
+  .header__label__reset {
+    position: absolute;
+    top: 0px;
+    left: 0vw;
+    padding: 0.25rem 0 0 1rem;
+  }
+}
+
+.footer__wrapper {
+  // background-color: $white;
+  background-color: #c8def7;
+  bottom: 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.51);
+  justify-content: space-evenly;
+  left: 0;
+  padding: 1.5rem 0.75rem 0.5rem 2.5rem;
+  position: fixed;
+  right: 0;
+  z-index: 10;
+
+  .footer__action {
+    text-align: center;
+  }
+
+  .footer__label {
+    position: absolute;
+    top: 0;
+    right: calc(50% - 1.5rem);
+    font-weight: bold;
+    padding-bottom: 0.25rem;
+  }
+
+  .slider__container {
+    margin: 0 auto;
+    max-width: 200px;
+
+    .footer__label {
+      margin-top: 6px;
+    }
+  }
+
+  .control {
+    border-radius: 50%;
+    touch-action: manipulation;
+    transition-duration: 164ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(0) scale(1.25);
+    }
+
+    &:active {
+      outline: none;
+      transform: scale(0.8);
+    }
+  }
+}
