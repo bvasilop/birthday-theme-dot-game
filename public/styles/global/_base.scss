@@ -1,6 +1,4 @@
-//
 // Base styles
-//
 
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -9,7 +7,6 @@
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  // background-color: $persian-indigo;
   background-color: $birthday-blue;
   color: $body-font-color;
   font-family: 'Limelight', 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
@@ -37,7 +34,6 @@ a {
   border: 0;
   border-radius: 0;
   cursor: pointer;
-  // line-height: 1;
   padding: 0;
 }
 

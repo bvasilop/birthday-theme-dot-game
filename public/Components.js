@@ -7,7 +7,7 @@ export const gameOverContent = score => {
   return `
     <div class="summary__wrapper">
       <h2 class="summary__title">Game Over!</h2>
-      <p class="summary__subtitle">You got</p>
+      <p class="summary__subtitle">You earned</p>
       <p class="summary__value ${scoreClass}">${score} <small>points</small></p>
       <a href="/" class="button button--primary button--block button--lg">
         Play Again
