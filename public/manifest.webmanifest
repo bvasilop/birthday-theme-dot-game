@@ -1,0 +1,21 @@
+{
+  "short_name": "Birthday Dot Game",
+  "name": "Birthday Theme Dot Game",
+  "icons": [
+    {
+      "src": "/img/icons/balloon_256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/img/icons/balloon_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6"
+}
