@@ -1,0 +1,44 @@
+// Slider styles
+
+.slider__container {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  -webkit-transition: 0.2s;
+  background: #ebedef;
+  border-radius: 0.5rem;
+  height: 1rem;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  width: 100%;
+
+  &:hover {
+    transform: translateY(0) scale(1.25);
+  }
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: $primary-color;
+  border: 0.25rem solid $white;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+}
+
+.slider::-moz-range-thumb {
+  background: $primary-color;
+  border: 0.25rem solid $white;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+}
