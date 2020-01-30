@@ -1,20 +1,16 @@
 # <img width="30" height = "30" alt="Play Screen" src="publicimg/../public/img/icons/balloon_256.png"> Birthday Theme Dot Game
 
-## [Live Demo via Glitch](http://.glitch.me)
-
-## [Github repository](https://github.com/)
+## [Live Demo via Glitch](https://bvasilop-birthday-theme-dot-game.glitch.me/)
 
 ## Overview
 
-This a birthday themed dot game that was created using a mobile-first approach while utilizing traditional JavaScript and SCSS. It is also a PWA (Progressive Web Application) that caches all resources to the browser and can be played completely offline. 😆
-
-This game is built with no frameworks or libraries -- just vanilla JS 🍦and SCSS! It simplifies DOM manipulations with state-based components using the data defined and managed on the `DotGame` class!
+This a birthday themed dot game that was created using a mobile-first approach while utilizing traditional JavaScript and SCSS. It manipulates the DOM with state and class-based components and easily allows for updating, editing and scalability. It is also a PWA (Progressive Web Application) that caches all resources to the browser and can be played completely offline in the event of a disconnected mobile network. 😆
 
 ## Set Up
 
 ### Requirements
 
-- [Node](https://nodejs.org/en/) (ver. 9+, built with 9.11.1)
+- [Node](https://nodejs.org/en/) (ver. 10)
 
 ### Launch App Locally
 
@@ -66,3 +62,53 @@ A user:
 <img width="1000" alt="Sketch board" src="public/img/readme/dot-game-sketch.png">
 
 ## Implementation
+
+A short guide to my development process and how I decided to implement this project.
+
+### GameController Class
+
+I wanted to make this game simple yet scalable so it's possible to easily generate new games based on an abstract class. This class, although simple, contains essential properties and methods that each new game can inherit, especially if more games were eventually added. This allows multiple games to be hooked up while also preserving the UI components and logic of each individual game.
+
+### DotGame Class
+
+Extended from the GameController class, this class defines the default configuration and UI of the Dot game. By passing a GAME_CONFIG object to the constructor, new instances can be customized. For example:
+
+```javascript
+const DOT_GAME_CONFIG = {
+  name: "Dot Game",
+  scoreStart: 0,
+  timerStart: 60,
+  dotSpeed: 65
+};
+```
+
+### State-Based Components
+
+Even without using a framework like React, it is possible to code state based components in vanilla JS, which makes code more functional while also simplifying UI interactions and DOM manipulations greatly! Here is a proof of concept on [JSFiddle](https://jsfiddle.net/shinjukudev/3sn15kcz/63/).
+
+## Making the Game Interesting
+
+To make the game more fun and interesting, I added the following features:
+
+1. **Score** Players increase their score by clicking dots. If they miss dots, however, their score will be negatively impacted!
+2. **Speed** As you click on dots, you'll notice the speed and difficulty gradually increase. Get too fast? Use the speed switch slider at the bottom to slow things down.
+3. **Timer** I wanted to add a sense of urgency to make the game more interesting, so there is a countdown timer. When the timer reaches zero -- it's game over, man!
+
+## Performance Reporting Screenshots
+
+A few screeshots of performance and validation reports.
+
+### W3c HTML validation report
+
+<img width="467" alt="w3c_html_validation" src="https://user-images.githubusercontent.com/6524512/54403950-36c0c880-4715-11e9-867e-b3fb650318c1.png">
+
+### Lighthouse performance report
+
+<img width="871" alt="lighthouse_report" src="https://user-images.githubusercontent.com/6524512/54403954-3aece600-4715-11e9-9b11-2fb6deb83f14.png">
+
+### Things to Improve
+
+1. Even though the refresh rate is 60 frames per second, the falling birthday items could be less jittery if I manipulated the refresh rate further.
+2. Add theming ability to change colors and object types through reusable classes and config settings.
+
+3. Using webpack to bundle all html, css and JavaScript files.
