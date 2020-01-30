@@ -4,6 +4,8 @@ import { score, gameOverContent, overlayContent } from './Components.js';
 
 import { getRandomNumber } from './Helpers.js';
 
+// Initial Config Settings
+
 const DOT_GAME_CONFIG = {
   name: 'Dot Game',
   scoreStart: 0,
@@ -262,6 +264,59 @@ class DotGame extends GameController {
     this.config.score = newScore;
 
     this.renderScore(points);
+  };
+
+  // Render screen content methods
+
+  renderScore = points => {
+    let className = 'game__score--plus';
+
+    if (points < 0) {
+      className = 'game__score--minus';
+    }
+
+    this.domElements.scoreBoard.innerHTML = score(this.config.score, className);
+  };
+
+  // Game Over Modal
+
+  renderGameOverModal = () => {
+    const { score, jobCount } = this.config;
+
+    this.domElements.modalContent.innerHTML = gameOverContent(score, jobCount);
+    this.toggleModal('open');
+  };
+
+  toggleOverlay = (action, text) => {
+    const { overlay } = this.domElements;
+
+    switch (action) {
+      case 'open':
+        overlay.classList.add('overlay--is-open');
+        overlay.innerHTML = overlayContent(text);
+        break;
+      case 'close':
+        overlay.classList.remove('overlay--is-open');
+        break;
+      default:
+        console.log(`Sorry, we are experiencing technical difficulties`);
+    }
+  };
+
+  toggleModal = action => {
+    const { modal } = this.domElements;
+
+    switch (action) {
+      case 'open':
+        modal.classList.add('modal--is-open');
+        document.querySelector('#app-body').classList.add('tp-modal-open');
+        break;
+      case 'close':
+        document.querySelector('#app-body').classList.remove('tp-modal-open');
+        modal.classList.remove('modal--is-open');
+        break;
+      default:
+    }
   };
 }
 
