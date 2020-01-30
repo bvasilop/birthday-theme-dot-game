@@ -1,5 +1,7 @@
 import GameController from './GameController.js';
 
+import { score, gameOverContent, overlayContent } from './Components.js';
+
 import { getRandomNumber } from './Helpers.js';
 
 const DOT_GAME_CONFIG = {
@@ -58,7 +60,6 @@ class DotGame extends GameController {
     // Initialize configuration defaults
     this.config.dotSpeed = parseInt(this.domElements.speedSwitcher.value);
   };
-  // TODO: Add Game Controls Section
 
   // Game controls section
 
@@ -93,7 +94,6 @@ class DotGame extends GameController {
       }
     };
 
-    // TODO: Add Change game speed section
     // Change game speed section
     this.domElements.speedSwitcher.oninput = input => {
       const updatedSpeed = parseInt(input.srcElement.value);
@@ -101,13 +101,9 @@ class DotGame extends GameController {
     };
   };
 
-  // TODO: Add Drawing each random item
-
   // Drawing each random item
 
   drawEachDot = () => this.addDot();
-
-  // TODO: Add Game State Methods - start, pause, resume, end
 
   // Game State Methods - start, pause, resume, end
 
@@ -142,14 +138,10 @@ class DotGame extends GameController {
     this.renderGameOverModal();
   };
 
-  // TODO: Add Method for refresh rate section
-
   // Method for refresh rate
 
   getMovingRefreshRate = () =>
     Math.floor(this.config.refreshRate / this.config.dotSpeed);
-
-  // TODO: Add Game Logic Methods
 
   // Game Logic Methods
 
@@ -224,11 +216,53 @@ class DotGame extends GameController {
     requestAnimationFrame(this.gameLoop.bind(this));
   };
 
-  // TODO: Add Update Methods Section - Game, Timer, Score
+  // Update Methods Section - Game, Timer, Score
 
-  // TODO: Add Render screen content methods
+  updateGame = progress => {
+    this.config.frames += 1;
+    this.moveDots();
 
-  // TODO: Add Game Over Modal
+    if (this.config.frames === 1 || this.config.frames % 60 === 0) {
+      this.updateTimer();
+    }
+  };
+
+  updateTimer = () => {
+    let timerOutput = (this.config.timer -= 1);
+
+    if (timerOutput < 1) {
+      this.endGame();
+    }
+
+    this.config.timer = timerOutput;
+
+    if (timerOutput < 10) {
+      timerOutput = `0${timerOutput}`;
+      document.querySelector('#js-game-timer').style.color = 'red';
+
+      // Flash for less than 10 seconds
+
+      // setTimeout(function() {
+      //   if (
+      //     document.querySelector('js-game-timer').style.display === 'initial'
+      //   ) {
+      //     document.querySelector('js-game-timer').style.display = 'none';
+      //   } else {
+      //     document.querySelector('js-game-timer').style.display = 'initial';
+      //   }
+      // }, 1000);
+    }
+
+    this.domElements.gameTimer.innerHTML = `00:${timerOutput}`;
+  };
+
+  updateScore = amount => {
+    const points = parseInt(100 / amount);
+    const newScore = (this.config.score += points);
+    this.config.score = newScore;
+
+    this.renderScore(points);
+  };
 }
 
 const dotGame = new DotGame(DOT_GAME_CONFIG);
