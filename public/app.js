@@ -1,5 +1,7 @@
 import GameController from './GameController.js';
 
+import { getRandomNumber } from './Helpers.js';
+
 const DOT_GAME_CONFIG = {
   name: 'Dot Game',
   scoreStart: 0,
@@ -142,7 +144,85 @@ class DotGame extends GameController {
 
   // TODO: Add Method for refresh rate section
 
+  // Method for refresh rate
+
+  getMovingRefreshRate = () =>
+    Math.floor(this.config.refreshRate / this.config.dotSpeed);
+
   // TODO: Add Game Logic Methods
+
+  // Game Logic Methods
+
+  // Adding dot items to screen
+
+  addDot = () => {
+    const dotImg = getRandomNumber(
+      this.config.dotMinSize,
+      this.config.dotMaxSize
+    );
+    const dot = document.createElement('div');
+    const shape = this.config.dotShapes[
+      Math.floor(Math.random() * this.config.dotShapes.length)
+    ];
+    dot.classList.add('dot', shape);
+    dot.style.width = `${dotImg}px`;
+    dot.style.height = `${dotImg}px`;
+    dot.style.left = `${Math.abs(
+      getRandomNumber(8, window.innerWidth - dotImg - 8)
+    )}px`;
+    dot.style.top = `${dotImg * -1}px`;
+
+    this.domElements.gameArea.appendChild(dot);
+
+    dot.onclick = event => {
+      if (this.GAME_PAUSED || this.GAME_OVER) return false;
+
+      this.updateScore(dotImg);
+      this.domElements.gameArea.removeChild(event.srcElement);
+    };
+  };
+
+  // Moving Items on screen
+
+  moveDots = () => {
+    document.querySelectorAll('.dot').forEach(dot => {
+      const dotTop = parseInt(dot.style.top);
+
+      // Remove dots that are outside game area
+
+      if (dotTop > this.domElements.gameArea.offsetHeight) {
+        this.updateScore(-50);
+        this.domElements.gameArea.removeChild(dot);
+      }
+
+      // Animate motion of dots going down screen
+
+      if (this.config.frames % 6 === 0) {
+        dot.style.top = `${dotTop + this.config.dotSpeed / 10}px`;
+      }
+    });
+  };
+
+  drawDots = () => {
+    if (this.config.frames === 1 || this.config.frames % 60 === 0) {
+      this.drawEachDot();
+    }
+  };
+
+  gameLoop = timestamp => {
+    if (this.GAME_PAUSED || this.GAME_OVER) {
+      return false;
+    }
+
+    const progress = timestamp - this.config.lastRender;
+
+    this.updateGame(progress);
+    this.drawDots();
+
+    this.config.lastRender = timestamp;
+
+    requestAnimationFrame(this.gameLoop.bind(this));
+  };
 
   // TODO: Add Update Methods Section - Game, Timer, Score
 
