@@ -34,8 +34,6 @@ Note: port number is randomly generated so check console
 3. If items make it past the bottom of the screen you lose points, so act quickly!
 4. Game ends when the timer runs out!
 
-<!-- See [Making the game interesting](#making-the-game-interesting) for more info about game mechanics! -->
-
 ## UX Process
 
 ### User wants/needs

@@ -1,0 +1,53 @@
+// Button styles
+
+.button {
+  background-color: transparent;
+  border: 0;
+  border-radius: $global-border-radius;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 1rem 0;
+  text-align: center;
+  text-decoration: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $white, 0 0 0 4px #085ff7;
+    outline: 0;
+  }
+
+  &:hover {
+    transform: translateY(0) scale(1.05);
+  }
+}
+
+.button--block {
+  display: block;
+  width: 100%;
+}
+
+.button--lg {
+  // font-size: 20px;
+  font-size: 1.4rem;
+  padding: 1rem 0;
+}
+
+.button--primary {
+  background-color: $primary-color;
+  width: 13rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2.5rem;
+  color: $white;
+
+  &:active:not(:disabled) {
+    background-color: $sky-blue;
+    border-color: $sky-blue;
+  }
+}
+
+.button:disabled,
+.button.disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
