@@ -1,0 +1,82 @@
+// Modal styles
+
+.modal {
+  align-items: center;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  overflow: hidden;
+  padding: 24px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 40;
+  cursor: pointer;
+
+  &.modal--is-open {
+    display: flex;
+  }
+}
+
+.modal__background {
+  background-color: rgba(0, 0, 0, 0.81);
+  bottom: 0;
+  left: 0;
+  min-height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.modal__content {
+  max-width: 500px;
+  overflow-y: auto;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+
+  .Logo {
+    margin: 10px auto 16px;
+  }
+}
+
+.modal__content--inner {
+  // background-color: $white;
+  background-color: $powder-blue;
+  border-radius: $global-border-radius;
+  margin-bottom: 12px;
+  min-width: 270px;
+  padding: 24px;
+}
+
+.modal__top-spacer {
+  margin-top: 44px;
+}
+
+.modal__close {
+  color: #fff;
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  right: 24px;
+  top: 14px;
+  z-index: 20;
+  background: #0e57e5;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(0) scale(1.1);
+  }
+}
+
+.tp-modal-open {
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  overflow: hidden;
+}
