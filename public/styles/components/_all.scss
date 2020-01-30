@@ -1,7 +1,7 @@
-// Import files for all component styles
+// Import file for all global styles
 
-@import "button";
-@import "game";
-@import "slider";
-@import "modal";
-@import "dot";
+@import "variables";
+@import "base";
+@import "utilities";
+@import "animations";
+@import "layout";
