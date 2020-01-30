@@ -58,6 +58,46 @@ class DotGame extends GameController {
   };
   // TODO: Add Game Controls Section
 
+  // Game controls section
+
+  bindEventListeners = () => {
+    document.querySelector('#app').onclick = event => {
+      const { action } = event.target.dataset;
+
+      switch (action) {
+        case 'start-game':
+          this.startGame();
+          break;
+        case 'pause-game':
+          this.pauseGame();
+          break;
+        case 'close-modal':
+          if (this.GAME_OVER) {
+            const content = `<div>
+              <p>GAME OVER</p>
+              <a href="/" class="button button--primary button--block">Play Again</a>
+            </div>`;
+
+            this.toggleOverlay('open', content);
+          } else {
+            this.resumeGame();
+          }
+          this.toggleModal('close');
+          break;
+        case 'resume-game':
+          this.resumeGame();
+          break;
+        default:
+      }
+    };
+
+    // Change game speed section
+    this.domElements.speedSwitcher.oninput = input => {
+      const updatedSpeed = parseInt(input.srcElement.value);
+      this.config.dotSpeed = updatedSpeed;
+    };
+  };
+
   // TODO: Add Change game speed section
 
   // TODO: Add Drawing each random item
