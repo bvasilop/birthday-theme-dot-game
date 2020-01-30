@@ -1,0 +1,135 @@
+// Game Elements styles
+
+.game__container {
+  position: relative;
+  user-select: none;
+}
+
+.game__board {
+  height: 100%;
+  min-height: calc(100vh - 140px);
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+}
+
+.game__timer {
+  color: $ocean-blue;
+  font-size: 2.25rem;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+.game__score {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: $ocean-blue;
+}
+
+.game__score--plus,
+.game__score--minus {
+  animation-iteration-count: 1;
+}
+
+.game__score--plus {
+  animation: plus-points 0.4s;
+}
+
+.game__score--minus {
+  animation: minus-points 0.4s;
+}
+
+.game__start-dialog {
+  background-color: transparent;
+  border: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: $z-index-top-layer;
+}
+
+.start-dialog__overlay {
+  background-color: rgba(0, 0, 0, 0.71);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: $z-index-lowest-layer;
+}
+
+.start-dialog__content {
+  background: $powder-blue;
+  border-top: 1px solid $gray-300;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem 0;
+  position: absolute;
+  right: 0;
+
+  .content__title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0.25rem;
+    margin: 0;
+  }
+
+  .content__copy {
+    color: $gray-800;
+  }
+
+  .content__labels {
+    margin: 0 0 18px;
+
+    .Label {
+      cursor: pointer;
+    }
+  }
+
+  .content__actions {
+    text-align: center;
+  }
+}
+
+.summary__wrapper {
+  background-color: $powder-blue;
+  border-radius: 1.3rem;
+  padding: 1rem;
+  text-align: center;
+  opacity: 0.9;
+
+  .summary__title {
+    font-size: 2rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .summary__subtitle {
+    font-size: 1.85rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .summary__value {
+    font-size: 2.75rem;
+    font-weight: bold;
+    margin: 0 0 1rem;
+
+    &.plus {
+      color: $medium-green;
+    }
+
+    &.minus {
+      color: $medium-red;
+    }
+
+    small {
+      display: block;
+      font-size: 1.55rem;
+    }
+  }
+}
