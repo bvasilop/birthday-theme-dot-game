@@ -91,6 +91,7 @@ class DotGame extends GameController {
       }
     };
 
+    // TODO: Add Change game speed section
     // Change game speed section
     this.domElements.speedSwitcher.oninput = input => {
       const updatedSpeed = parseInt(input.srcElement.value);
@@ -98,11 +99,46 @@ class DotGame extends GameController {
     };
   };
 
-  // TODO: Add Change game speed section
-
   // TODO: Add Drawing each random item
 
+  // Drawing each random item
+
+  drawEachDot = () => this.addDot();
+
   // TODO: Add Game State Methods - start, pause, resume, end
+
+  // Game State Methods - start, pause, resume, end
+
+  startGame = () => {
+    document.querySelector('#js-start-dialog').classList.add('util__is-hidden');
+    requestAnimationFrame(this.gameLoop.bind(this));
+  };
+
+  pauseGame = () => {
+    this.onPause();
+
+    this.domElements.pauseButton.classList.add('util__is-hidden');
+    this.domElements.resumeButton.classList.remove('util__is-hidden');
+
+    this.toggleOverlay('open', 'PAUSED');
+  };
+
+  resumeGame = () => {
+    if (this.GAME_OVER) return false;
+
+    this.onResume();
+    this.toggleOverlay('close');
+
+    this.domElements.resumeButton.classList.add('util__is-hidden');
+    this.domElements.pauseButton.classList.remove('util__is-hidden');
+
+    requestAnimationFrame(this.gameLoop.bind(this));
+  };
+
+  endGame = () => {
+    this.onEnd();
+    this.renderGameOverModal();
+  };
 
   // TODO: Add Method for refresh rate section
 
