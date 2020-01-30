@@ -4,6 +4,12 @@ import { score, gameOverContent, overlayContent } from './Components.js';
 
 import { getRandomNumber } from './Helpers.js';
 
+import { ServiceWorker } from './ServiceWorkerInstall.js';
+
+// Register ServiceWorker Section.
+
+ServiceWorker(); // // Register service worker and cache everything after the page has been completely loaded
+
 // Initial Config Settings
 
 const DOT_GAME_CONFIG = {
@@ -241,18 +247,6 @@ class DotGame extends GameController {
     if (timerOutput < 10) {
       timerOutput = `0${timerOutput}`;
       document.querySelector('#js-game-timer').style.color = 'red';
-
-      // Flash for less than 10 seconds
-
-      // setTimeout(function() {
-      //   if (
-      //     document.querySelector('js-game-timer').style.display === 'initial'
-      //   ) {
-      //     document.querySelector('js-game-timer').style.display = 'none';
-      //   } else {
-      //     document.querySelector('js-game-timer').style.display = 'initial';
-      //   }
-      // }, 1000);
     }
 
     this.domElements.gameTimer.innerHTML = `00:${timerOutput}`;
