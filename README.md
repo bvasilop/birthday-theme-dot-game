@@ -4,7 +4,7 @@
 
 ## Overview
 
-This a responsive and adaptive birthday themed dot game that was created using a mobile-first approach while utilizing traditional JavaScript and SCSS. It manipulates the DOM with state and class based components and easily allows for updating and scalability. This browser based game is also a PWA (Progressive Web Application) that caches all resources to the browser and can be played completely offline in the event of a disconnected mobile network.
+This a responsive and adaptive birthday themed dot game that was created using a mobile-first approach while utilizing traditional JavaScript and SCSS. It manipulates the DOM with state and class based components and easily allows for updating and scalability. This game is also a PWA (Progressive Web Application) that caches all resources to the web browser and can be played completely offline in the event of a disconnected mobile network.
 
 ## Set Up
 
@@ -12,7 +12,7 @@ This a responsive and adaptive birthday themed dot game that was created using a
 
 - [Node](https://nodejs.org/en/) (ver. 10)
 
-### Launch App Locally
+### Local Install
 
 ```
 $ git clone <repo>
@@ -26,7 +26,7 @@ $ npm run start
 ## Game Objectives
 
 1. Click **Start Game**
-2. Try to pop balloons, presents, cupcakes and/or party hats for points!
+2. Mouse over and click to pop balloons, presents, cupcakes and/or party hats for points!
 3. If items make it past the bottom of the screen you lose points, so act quickly!
 4. Game ends when the timer runs out!
 
@@ -42,9 +42,9 @@ _As a someone who enjoys playing games:_
 - I want the user experience to be fun, engaging and aesthetically pleasing with the assistance of high-contrast colors and images so that I can keep finding enjoyment in playing the game.
 - I want to be able to play games offline so that if I'm in a cellular area with a low quality network signal I can still play the game even after refreshing the browser.
 
-### Whiteboard Mockup
+### Wireframe
 
-<img width="750" alt="Wireframing board" src="public/img/readme/dot-game-mockup.png">
+<figure><img alt="Wireframing board" src="public/img/readme/dot-game-mockup.png"><figcaption><i>whiteboard sketch for managing UI layout, state and components</i></figcaption></figure>
 
 ### Design goals
 
@@ -55,17 +55,17 @@ _As a someone who enjoys playing games:_
 - Create a red countdown timer for final 10 seconds of game play to cue player that the end is imminent!
 - Create zooming effect for clickable items to assist with locating items for visually impaired users.
 
-### State Flow created with Sketch
+### State Flow
 
-<img width="1000" alt="Sketch board" src="public/img/readme/dot-game-sketch.png">
+<figure><img alt="Sketch board" src="public/img/readme/dot-game-sketch.png"><figcaption><i>created with Sketch</i></figcaption></figure>
 
 ### 📂 File Tree
 
-<img width="1000" alt="Sketch board" src="public/img/readme/file-tree.png">
+<figure><img alt="File Tree" src="public/img/readme/file-tree.png"><figcaption><i>file tree layout for all scss and javascript files</i></figcaption></figure>
 
 ## Wiring up the App
 
-JavaScript concepts used to integrate functionality with UI components.
+JavaScript and SCSS concepts used to integrate functionality with markup and UI components.
 
 ### Classes
 
@@ -79,17 +79,28 @@ Being familiar with the React JavaScript framework, I applied similar state base
 
 I used flexible and reusable Block Element Modifier (BEM) methodology for organizing and implementing CSS styles throughout the project.
 
+<figure><img alt="BEM" src="public/img/readme/bem.png"><figcaption><i>brief overview courtesy of getbem.com</i></figcaption></figure>
+
+### ServiceWorker
+
+I installed a serviceworker JavaScript helper to assist with caching resources in the browser to allow for faster loading and offline use.
+
+<figure><img alt="Service Worker" src="public/img/readme/service-worker.png">
+<figcaption><i>service worker installed and viewed in chrome devtools</i></figcaption></figure>
+
+<figure><img alt="Cached Resources" src="public/img/readme/cached.png"><figcaption><i>cached resources stored in the browser for offline use</i></figcaption></figure>
+
 ## Google Chrome Lighthouse Performance Report
 
-<img width="871" alt="lighthouse report" src="public/img/readme/audit.png">
+<figure><img alt="lighthouse report" src="public/img/readme/audit.png"><figcaption><i>audit report for performance, accessibility, best practices, SEO and PWA</i></figcaption></figure>
 
 ## W3C HTML Validation
 
-<img width="871" alt="html validate" src="public/img/readme/html-validate.png">
+<figure><img alt="html validate" src="public/img/readme/html-validate.png"><figcaption><i>passing validation check for index.html</i></figcaption></figure>
 
 ## W3C CSS Validation
 
-<img width="871" alt="css validate" src="public/img/readme/css-validate.png">
+<figure><figcaption><img alt="css validate" src="public/img/readme/css-validate.png"><i>passing validation check for app.css</i></figcaption></figure>
 
 ### Things to Improve
 
