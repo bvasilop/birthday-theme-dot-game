@@ -39,8 +39,8 @@ _As a someone who enjoys playing games:_
 - I want to play a mobile or desktop game that is simple and fun to play so that I may not be encumbered by complex game instructions.
 - I want the game to be accessible to as many users as possible so that buttons and items can be easily located and clicked.
 - I want the user interface to be simple to locate so that I can pause/restart the game with ease.
-- I want the user experience to be fun by creating entertaining themes with high-contrast colors and images.
-- I want to be able to play games offline so that if I'm in a cellular area with a low quality network signal I can still play the game in the browser even after refreshing.
+- I want the user experience to be fun, engaging and aesthetically pleasing with the assistance of high-contrast colors and images so that I can keep finding enjoyment in playing the game.
+- I want to be able to play games offline so that if I'm in a cellular area with a low quality network signal I can still play the game even after refreshing the browser.
 
 ### Whiteboard Mockup
 
