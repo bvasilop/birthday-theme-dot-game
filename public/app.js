@@ -275,9 +275,9 @@ class DotGame extends GameController {
   // Game Over Modal
 
   renderGameOverModal = () => {
-    const { score, jobCount } = this.config;
+    const { score } = this.config;
 
-    this.domElements.modalContent.innerHTML = gameOverContent(score, jobCount);
+    this.domElements.modalContent.innerHTML = gameOverContent(score);
     this.toggleModal('open');
   };
 

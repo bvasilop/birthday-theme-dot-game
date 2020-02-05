@@ -1,5 +1,5 @@
-export const score = (score, animClass) =>
-  `<span class="game__score ${animClass}">${score}</span>`;
+export const score = (score, animations) =>
+  `<span class="game__score ${animations}">${score}</span>`;
 
 export const gameOverContent = score => {
   const scoreClass = score > 0 ? 'plus' : 'minus';
