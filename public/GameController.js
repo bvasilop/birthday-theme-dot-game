@@ -1,6 +1,6 @@
 // created GameController class for handling props and functionality for new games
 
-class GameController {
+export default class GameController {
   constructor(GAME_CONFIG) {
     // Game configuration
     this.NAME = GAME_CONFIG.name || null;
@@ -54,5 +54,3 @@ class GameController {
     return false;
   };
 }
-
-export default GameController;
